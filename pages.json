@@ -1,0 +1,115 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/loading/loading",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+    }, {
+      "path": "pages/index/home",
+      "style": {
+        "navigationBarTitleText": "智税咨询",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+
+    }, {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "胖大海"
+      }
+    }
+
+    , {
+      "path": "pages/mine/mine",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+    }
+
+    , {
+      "path": "pages/content/content",
+      "style": {
+        "navigationBarTitleText": "内容查看",
+        "enablePullDownRefresh": false
+      }
+    }, {
+      "path": "pages/content/help",
+      "style": {
+        "navigationBarTitleText": "使用指南",
+        "enablePullDownRefresh": false
+      }
+
+    }, {
+      "path": "pages/login/login",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "登录",
+        "enablePullDownRefresh": false
+      }
+    }, {
+      "path": "pages/regiester/regiester",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "注册",
+        "enablePullDownRefresh": false
+      }
+    }, {
+      "path": "pages/tab/assistant",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false,
+        "navigationBarTitleText": "开通权益"
+      }
+
+    },
+    {
+      "path": "pages/index/question",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+
+    }
+    , {
+      "path": "pages/index/write",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "AI智税",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "uniIdRouter": {},
+  "tabBar": {
+    "selectedColor": "#FF9900",
+    "fontSize": "16",
+    "list": [{
+        "text": "AI助手",
+        "pagePath": "pages/index/home",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/homed.png"
+      },
+      {
+        "text": "模型切换",
+        "pagePath": "pages/tab/assistant",
+        "iconPath": "static/tabbar/model.png",
+        "selectedIconPath": "static/tabbar/modeld.png"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "static/tabbar/mine.png",
+        "selectedIconPath": "static/tabbar/mined.png"
+      }
+    ]
+  }
+}

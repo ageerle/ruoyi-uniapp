@@ -1,0 +1,29 @@
+.head{
+	width: 100vw;
+	height: 88rpx;
+	background: #FFFFFF;
+	display: flex;align-items: center;justify-content: center;
+	position: fixed;top: 0;left: 0;z-index: 999;
+	font-size: 36rpx;
+	font-weight: 500;
+	color: #333333;
+}
+.back{
+	width: 88rpx;height: 88rpx;
+	position: absolute;bottom: 0;left: 0;
+	display: flex;align-items: center;justify-content: center;
+}
+.back_pic{
+	width: 16rpx;height: 30rpx;
+}
+.main_btn{
+	font-size: 32rpx;
+	font-weight: 500;
+	color: #FFFFFF;
+	width: 690rpx;
+	height: 98rpx;
+	background: #7E3EFE;
+	border-radius: 16rpx;
+	display: flex;align-items: center;justify-content: center;
+	margin: 40rpx auto 0 auto;
+}

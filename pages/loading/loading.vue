@@ -4,7 +4,7 @@
 			<view class="spinner spinner--rotate-square-2">
 			</view>
 			<view class="site-title">
-				{{ 'loading...' }}
+				{{ 'loading1111...' }}
 			</view>
 		</view>
 
@@ -23,6 +23,7 @@
 			}
 		},
 		onLoad() {
+			// #ifdef MP-WEIXIN
 			uni.login({
 				success: (res) => {
 					if (res.errMsg == 'login:ok') {
@@ -45,6 +46,13 @@
 					}
 				}
 			})
+			// #endif
+			
+			// #ifndef MP-WEIXIN
+			 uni.reLaunch({
+			 	url: '../index/home'
+			 });
+			// #endif
 		},
 		computed: {
 

@@ -9,7 +9,7 @@
     }, {
       "path": "pages/index/home",
       "style": {
-        "navigationBarTitleText": "智税咨询",
+        "navigationBarTitleText": "AI咨询",
         "enablePullDownRefresh": false,
         "navigationStyle": "custom"
       }
@@ -17,7 +17,7 @@
     }, {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "胖大海"
+        "navigationBarTitleText": "Panda"
       }
     }
 
@@ -84,7 +84,7 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "AI智税",
+    "navigationBarTitleText": "AI助手",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },

@@ -14,7 +14,25 @@
         "navigationStyle": "custom"
       }
 
-    }, {
+    },
+	{
+      "path": "pages/h5/login",
+      "style": {
+        "navigationBarTitleText": "H5登录",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    }, 
+	{
+	  "path": "pages/h5/register",
+	  "style": {
+	    "navigationBarTitleText": "H5登录",
+	    "enablePullDownRefresh": false,
+	    "navigationStyle": "custom"
+	  }
+	
+	}, 
+	{
       "path": "pages/index/index",
       "style": {
         "navigationBarTitleText": "Panda"

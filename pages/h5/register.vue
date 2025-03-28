@@ -3,7 +3,7 @@
 		<view class="container">
 			<!-- logo -->
 			<view class="logo">
-				<u-avatar src="/static/logo2.png" shape="square" size="100"></u-avatar>
+				<u-avatar src="/static/logo.png" shape="square" size="100"></u-avatar>
 			</view>
 			<!-- title -->
 			<view class="title">
@@ -12,9 +12,9 @@
 			<!-- 用户名密码表单 -->
 			<view class="form">
 				<u--form labelPosition="left" :model="model" :rules="rules" ref="registerForm" labelWidth="80">
-					<u-form-item label="手机号" prop="user.username" borderBottom
+					<u-form-item label="账户名称" prop="user.username" borderBottom
 						customStyle="margin-bottom: 10px">
-						<u--input placeholder="请输入手机号" v-model="model.user.username" border="none"></u--input>
+						<u--input placeholder="请输入账户名称" v-model="model.user.username" border="none"></u--input>
 					</u-form-item>
 					<u-form-item label="密码" prop="user.password" borderBottom customStyle="margin: 10px 0">
 						<u--input placeholder="请输入密码" v-model="model.user.password" border="none" password clearable>

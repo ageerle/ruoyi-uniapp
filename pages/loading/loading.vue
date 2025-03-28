@@ -4,7 +4,7 @@
 			<view class="spinner spinner--rotate-square-2">
 			</view>
 			<view class="site-title">
-				{{ 'loading1111...' }}
+				{{ 'loading...' }}
 			</view>
 		</view>
 
@@ -47,11 +47,21 @@
 				}
 			})
 			// #endif
-			
+
 			// #ifndef MP-WEIXIN
-			 uni.reLaunch({
-			 	url: '../index/home'
-			 });
+			let token = uni.getStorageSync('token')
+			if (token) {
+				uni.reLaunch({
+					url: '../index/home'
+				});
+			} else {
+				uni.reLaunch({
+					url: '../h5/login'
+				});
+			}
+			uni.reLaunch({
+				url: '../h5/login'
+			});
 			// #endif
 		},
 		computed: {

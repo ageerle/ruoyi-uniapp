@@ -3,7 +3,7 @@
     <view class="container">
       <!-- logo -->
       <view class="logo">
-        <u-avatar src="/static/logo2.png" shape="square" size="100"></u-avatar>
+        <u-avatar src="/static/logo.png" shape="square" size="100"></u-avatar>
       </view>
       <!-- title -->
       <view class="title">
@@ -11,9 +11,9 @@
       </view>
       <!-- 用户名密码表单 -->
       <view class="form">
-        <u--form labelPosition="left" :model="model" :rules="rules" ref="loginForm" labelWidth="80">
-          <u-form-item label="手机号" prop="user.username" borderBottom customStyle="margin-bottom: 10px">
-            <u--input placeholder="请输入手机号" v-model="model.user.username" border="none"></u--input>
+        <u--form labelPosition="left" :model="model" ref="loginForm" labelWidth="80">
+          <u-form-item label="用户名称" prop="user.username" borderBottom customStyle="margin-bottom: 10px">
+            <u--input placeholder="请输入用户名称" v-model="model.user.username" border="none"></u--input>
           </u-form-item>
           <u-form-item label="密码" prop="user.password" borderBottom customStyle="margin: 10px 0">
             <u--input placeholder="请输入密码" v-model="model.user.password" border="none" password clearable>
@@ -24,9 +24,9 @@
         </u-button>
       </view>
       <!-- 脚注功能 -->
-      <view class="footer">
+<!--      <view class="footer">
         <text class="footer-text" @click="register">账号注册</text>
-      </view>
+      </view> -->
     </view>
   </view>
 </template>
@@ -54,29 +54,6 @@ export default {
           password: '',
         },
       },
-      rules: {
-        'user.username': [{
-          required: true,
-          message: '请输入手机号',
-          trigger: ['change', 'blur'],
-        },
-          {
-            validator: (rule, value, callback) => {
-              return uni.$u.test.mobile(value)
-            },
-            message: '手机号码不正确',
-            trigger: ['blur'],
-          }
-        ],
-        'user.password': [{
-          type: 'string',
-          min: 6,
-          max: 16,
-          required: true,
-          message: '请输入6-16位密码',
-          trigger: ['blur']
-        }],
-      }
     }
   },
   onLoad() {
@@ -84,20 +61,42 @@ export default {
   },
   methods: {
     // 登录提交
-    submit() {
-      this.$refs.loginForm.validate().then(async res => {
-        let param = this.model.user
-        const result = await this.$api.login(param)
-        if (result.success) {
-          // 将token存入
-          const {data} = result
-          uni.setStorageSync("Access-Token", data.accessToken);
-          uni.$u.route('/pages/message/message');
-        }else{
-          uni.$u.toast(result.message);
-        }
-      })
-    },
+	submit() {
+		this.$request("/auth/login", "Post", {
+			username: this.model.user.username,
+			password: this.model.user.password
+		}, {
+			'content-type': 'application/json'
+		}).then((res) => {
+				if (res.data.token) {
+					// token保存到缓存 跳转到主页
+					uni.setStorageSync('userInfo', res.data.userInfo);
+					uni.setStorageSync('token', res.data.token)
+					console.log("登录成功!", res)
+					uni.reLaunch({
+						url: '../index/home'
+					});
+				}
+		});
+		
+	
+	},
+	
+	
+    // submit() {
+    //   this.$refs.loginForm.validate().then(async res => {
+    //     let param = this.model.user
+    //     const result = await this.$api.login(param)
+    //     if (result.success) {
+    //       // 将token存入
+    //       const {data} = result
+    //       uni.setStorageSync("Access-Token", data.accessToken);
+    //       uni.$u.route('/pages/message/message');
+    //     }else{
+    //       uni.$u.toast(result.message);
+    //     }
+    //   })
+    // },
     // 账号注册
     register() {
       uni.$u.route('/pages/h5/register');

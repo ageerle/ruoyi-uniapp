@@ -1,6 +1,6 @@
 let setting = {	
-	base_url: 'http://localhost:8080',
-	ws: 'ws://localhost:8080/websocket',
+	base_url: 'http://localhost:6039',
+	ws: 'ws://localhost:6039/resource/websocket',
 }
 
 export default setting

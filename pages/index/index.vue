@@ -44,8 +44,6 @@
 				<view class="body_lcon pdg" style="display: flex;overflow-x: hidden;">
 					<u-loading-icon :show="loading"></u-loading-icon>
 					<view v-if="!typeingText" style="padding: 30rpx;">思考中...</view>
-					<!-- <zero-markdown-view v-if="!typeingText" style="padding: 0 20rpx;" :markdown="now_model.title">思考中...</zero-markdown-view> -->
-					<!-- <view v-else style="padding: 30rpx;">{{ typeingText }}...</view> -->
 					<zero-markdown-view v-else style="padding: 0 20rpx;" :markdown="typeingText"></zero-markdown-view>
 				</view>
 			</view>
@@ -106,11 +104,11 @@
 			uni.setNavigationBarTitle({
 				title: "智能机器人胖胖"
 			})
-			that.arr.push({
-				role: 'assistant',
-				content: '你好，我是智能机器人胖胖！我可以回答你所有的问题',
-				message_id: 'aa'
-			})
+			// that.arr.push({
+			// 	role: 'assistant',
+			// 	content: '你好，我是智能机器人胖胖！我可以回答你所有的问题',
+			// 	message_id: 'aa'
+			// })
 		
 			let pong = '';
 			uni.connectSocket({
@@ -196,10 +194,10 @@
 		},
 		methods: {
 			getMessages() {
-				this.$request("/chat/message/list", "Get", {
+				this.$request("/system/message/list", "Get", {
 					"userId": this.msgId,
-					"current": 0,
-					"size": 20
+					"pageSize": 10,
+					"pageNum": 1,
 				},{'content-type': 'application/json'}).then((res) => {
 					console.log(res);
 					if (res.code == 200) {
@@ -251,7 +249,7 @@
 			},
 			// 保存消息
 			sub(message, role) {
-				this.$request("/chat/message/send", "POST", {
+				this.$request("/system/message", "POST", {
 					"content": message,
 					"role": role,
 					"userId": this.msgId
